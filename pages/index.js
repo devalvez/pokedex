@@ -69,7 +69,7 @@ export default function Home() {
         </ul>
       </section>
       <footer>
-        <p>Criado com <FaHeart className="heart" /> por Wesley A. Alves -- Powered by <a href="https://pokeapi.co/" target="_blank"><img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="" width="64px" /></a> </p>
+        <p>Criado com <FaHeart className="heart" /> por Wesley A. Alves </p>
       </footer>
     </div>
   );
