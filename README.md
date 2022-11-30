@@ -5,5 +5,5 @@ Projeto feito por dois simples motivos um deles que gosto muito da franquia Pok√
 
 <img src="https://github.com/devalvez/pokedex/blob/main/01.png" alt="01.png" width="100%" />
 
-<img src="https://github.com/devalvez/pokedex/blob/main/02.png" alt="02.png" width="745px" align="left" />
-<img src="https://github.com/devalvez/pokedex/blob/main/03.png" alt="01.png" width="225px" align="right" />
+<img src="https://github.com/devalvez/pokedex/blob/main/02.png" alt="02.png" width="74%" align="left" />
+<img src="https://github.com/devalvez/pokedex/blob/main/03.png" alt="01.png" width="22%" align="right" />
