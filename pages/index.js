@@ -2,6 +2,8 @@ import React,  { useState, useEffect } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
 
+import packageJson from '../package.json';
+
 import { Modal } from '../components/modal';
 
 export default function Home() {

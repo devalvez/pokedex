@@ -1,7 +1,18 @@
+import axios, { AxiosError } from 'axios';
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 export const Modal = ({ isVisible, data, handleModal }) => {
+
+  async function getTypes( url ) {
+    await axios.get(url)
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   if(!isVisible)
     return <></>
@@ -46,9 +57,11 @@ export const Modal = ({ isVisible, data, handleModal }) => {
                   <span className="list-title">Types :</span>
                   <div>
                     {
-                      data.types.map(({type}, index) => (
-                        <span key={index} className="badge badge-red">{type.name}</span>
-                      ))
+                      data.types.map(({type}, index) => {
+                        return (
+                          <span key={index} className="badge badge-red">{type.name}</span>
+                        )
+                      })
                     }
                   </div>
                 </li>
