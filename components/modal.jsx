@@ -75,12 +75,12 @@ export const Modal = ({ isVisible, data, handleModal }) => {
               {
                 data.stats.map(({base_stat, stat}) => (
                   <li>
-                    <span className={stat.name === 'hp' ? 'text-uppercase' : 'text-capitalize'}>{stat.name}</span>
+                    <span className={stat.name === 'hp' ? 'list-title text-uppercase' : 'list-title text-capitalize'}>{stat.name}</span>
                     <div className="inline">
                       <div className="progress-bar">
                         <div className="progress-status-red" style={{width: `${base_stat}%`}}></div>
                       </div>
-                      <span>{base_stat}</span>
+                      <span className="stat_value">{base_stat}</span>
                     </div>
                   </li>
                 ))

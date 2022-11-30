@@ -2,6 +2,15 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+@keyframes fade {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
 :root {
   --font-color: rgb(52, 73, 94);
   --background: rgb(242, 243, 244);
@@ -121,18 +130,35 @@ body {
 .text-lowercase {
   text-transform: lowercase;
 }
+.text-red {
+  color: var(--red);
+}
+.text-dark {
+  color: var(--dark);
+}
+.text-white {
+  color: var(--white);
+}
 .badge {
   margin: 5px;
-  font-size: 10px;
-  padding: 3px 10px;
-  border-radius: 6px;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 5px;
   vertical-align: middle;
+  white-space: wrap;
+  word-break: unset;
 }
 .badge.badge-red {
   background-color: var(--red);
   color: var(--white);
   font-weight: bold;
   box-shadow: 3px 3px 9px var(--red-shadow);
+}
+.badge.badge-dark {
+  background-color: var(--dark);
+  color: var(--white);
+  font-weight: bold;
+  box-shadow: 3px 3px 9px var(--dark-shadow);
 }
 .progress-bar {
   height: 25px;
@@ -146,6 +172,18 @@ body {
   border-radius: 5px;
   height: 25px;
   box-shadow: 3px 3px 9px var(--red-shadow);
+}
+.progress-bar .progress-status-dark {
+  background-color: var(--dark);
+  border-radius: 5px;
+  height: 25px;
+  box-shadow: 3px 3px 9px var(--dark-shadow);
+}
+.progress-bar .progress-status-gradient {
+  background: linear-gradient(90deg, var(--dark), var(--red));
+  border-radius: 5px;
+  height: 25px;
+  box-shadow: 3px 3px 9px var(--dark-shadow);
 }
 
 /* Modal */
@@ -171,7 +209,9 @@ body {
   justify-content: center;
   background-color: var(--background);
   box-shadow: 5px 5px 15px var(--dark-shadow);
+  animation: fade 500ms normal;
 }
+
 .modal .modal-dialog .modal-header {
   position: relative;
   padding: 21px 10px;
@@ -189,7 +229,6 @@ body {
   color: var(--white);
   cursor: pointer;
   z-index: 999999;
-
 }
 .modal .modal-dialog .modal-header .close-button span {
   vertical-align: middle;
@@ -226,7 +265,7 @@ body {
   text-align: right;
 }
 .modal .modal-dialog .modal-body .modal-content .pokemon-information ul li span {
-  font-size: 18px;
+  font-size: 1.536rem;
 }
 .modal .modal-dialog .modal-body .modal-content .pokemon-information ul li span.list-title {
   font-weight: bold;  
@@ -262,12 +301,19 @@ body {
 .modal .modal-dialog .modal-body .modal-content .pokemon-statistics ul li {
   margin-bottom: 10px;
 }
+.modal .modal-dialog .modal-body .modal-content .pokemon-statistics ul li span {
+  font-size: 1.25rem;
+}
+.modal .modal-dialog .modal-body .modal-content .pokemon-statistics ul li span.list-title {
+  font-weight: bold;
+}
 .modal .modal-dialog .modal-body .modal-content .pokemon-statistics ul .inline {
   display: flex;
 }
 
 footer {
   border-top: 1px solid #ddd;
+  margin-top: 100px;
   padding: 10px;
 }
 footer p {
@@ -284,8 +330,7 @@ footer p img {
 }
 
 
-@media(max-width: 507px) {
-
+@media(max-width: 1000px) {
   body {
     font-size: 0.8rem;
   }
@@ -300,6 +345,14 @@ footer p img {
   .container section .pokemons-list li.pokemon-item button {
     width: 100%;
   }
+  .container section .pokemons-list li.pokemon-item button {
+    background-position-x: 10px;
+    background-position-y: 230px;
+  }
+  .container section .pokemons-list li.pokemon-item button:hover {
+    background-position-x: 10px;
+    background-position-y: 167px;
+  }
   .container section .pokemons-list li.pokemon-item img {
     width: 120px;
     height: 120px;
@@ -310,20 +363,23 @@ footer p img {
     overflow-y: hidden;
   }
   .modal .modal-dialog .modal-header {
-    padding: 10px;
+    padding: 20.5px;
+    background-color: var(--dark);
+    border-bottom: 1px solid var(--dark-shadow);
   }
   .modal .modal-dialog .modal-body {
-    padding: 25px 15px;
-    height: 100%;
-  }  
+    padding: 0px 0px 0px 15px;
+    height: 92%;
+  }
   .modal .modal-dialog .modal-body .modal-content {
     display: flex;
     background: none;
     overflow-y: scroll;
     flex-direction: column;
+    padding: 15px 0px 5px 0px;
   }
   .modal .modal-dialog .modal-body .modal-content .pokemon-information {
-    margin-top: 280px;
+    margin-top: 0px;
     width: 100%;
   }
   .modal .modal-dialog .modal-body .modal-content .pokemon-information ul {
@@ -336,36 +392,55 @@ footer p img {
     text-align: left;
     flex-wrap: wrap;
   }
+  .modal .modal-dialog .modal-body .modal-content .pokemon-information ul li span {
+    font-size: 1rem;
+  }
   .modal .modal-dialog .modal-body .modal-content .pokemon-information ul li span.badge {
-    font-size: 12px;
     min-width: max-content;
+  }
+  .stat_value {
+    font-weight: bold;
   }
 
   .modal .modal-dialog .modal-body .modal-content .pokemon-art {
-    position: fixed;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
-
+    width: 60%;
+    padding: 10px 0px;
     z-index: 500;
     background: url(../public/pokeball-symbol-light.png) no-repeat center var(--background);
-    background-size: 60%;
+    background-size: 100%;
   }
   .modal .modal-dialog .modal-body .modal-content .pokemon-art img {
-    width: 200px;
+    width: 100%;
   }
 
   .modal .modal-dialog .modal-body .modal-content .pokemon-statistics {
     width: 100%;
-    margin-bottom: 100px;
   }
   .modal .modal-dialog .modal-body .modal-content .pokemon-statistics ul {
     list-style: none;
     width: 100%;
     margin-left: 0px;
     transform: perspective(0cm) rotateX(0deg) rotateY(0deg);
+  }
+  .modal .modal-dialog .modal-body .modal-content .pokemon-statistics ul li span {
+    font-size: 1rem;
+  }
+  .progress-bar {
+    width: 85%;
+    height: 15px;
+  }
+  .progress-bar .progress-status-red,
+  .progress-bar .progress-status-dark,
+  .progress-bar .progress-status-gradient {
+    height: 15px;
+  }
+  .stat_value {
+    font-weight: bold;
   }
 
 }
