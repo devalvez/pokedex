@@ -377,7 +377,7 @@ footer p img {
     height: 80vh;
     overflow-y: hidden;
     border: none;
-    background-color: var(--white);
+    background-color: var(--background);
   }
   .modal .modal-dialog .modal-header {
     padding: 20.5px;
