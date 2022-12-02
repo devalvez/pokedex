@@ -2,6 +2,7 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+/* Animation */
 @keyframes fade {
   from {
     opacity: 0
@@ -373,11 +374,11 @@ footer p img {
     height: 120px;
   }
 
-  .modal .modal-dialog  {
+  .modal .modal-dialog {
     height: 80vh;
     overflow-y: hidden;
     border: none;
-    background-color: var(--white);
+    background-color: var(--background);
   }
   .modal .modal-dialog .modal-header {
     padding: 20.5px;
