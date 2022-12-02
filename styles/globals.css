@@ -84,7 +84,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url(../public//pokeball-symbol-light.png) no-repeat right bottom var(--white);
+  background: url(../public//pokeball-symbol-light.png) no-repeat right bottom rgba(255,255,255,0.6);
+  backdrop-filter: blur(-10px);
   background-position-x: 48px;
   background-position-y: 240px;
   background-size: 120px;
@@ -220,9 +221,11 @@ body {
   border-radius: 10px;
   align-items: center;
   justify-content: center;
-  background-color: var(--background);
+  /* background-color: var(--background); */
+  background-color: rgba(250, 250, 250, 0.6);
   box-shadow: 5px 5px 15px var(--dark-shadow);
   animation: fade 500ms normal;
+  border: 1px solid rgba(255, 255, 255, 0.59);
 }
 
 .modal .modal-dialog .modal-header {
@@ -357,11 +360,9 @@ footer p img {
     width: 145px;
   }
   .container section .pokemons-list li.pokemon-item button {
-    width: 100%;
-  }
-  .container section .pokemons-list li.pokemon-item button {
     background-position-x: 10px;
     background-position-y: 230px;
+    width: 100%;
   }
   .container section .pokemons-list li.pokemon-item button:hover {
     background-position-x: 10px;
@@ -375,6 +376,8 @@ footer p img {
   .modal .modal-dialog  {
     height: 80vh;
     overflow-y: hidden;
+    border: none;
+    background-color: var(--white);
   }
   .modal .modal-dialog .modal-header {
     padding: 20.5px;
