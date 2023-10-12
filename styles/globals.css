@@ -17,7 +17,9 @@
   --background: rgb(242, 243, 244);
   --white: rgb(255, 255, 255);
   --white-shadow: rgb(214, 219, 223);
-  --dark: rgba(52, 73, 94);
+  --dark: rgb(23, 32, 42);
+  --green: rgb(16, 174, 121);
+  --green-shadow: rgb(16, 174, 121, 0.4);
   --dark-shadow: rgba(52, 73, 94, 0.3);
   --red: rgba(245, 29, 48);
   --red-shadow: rgba(245, 29, 48, 0.4);
@@ -42,8 +44,16 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--font-color);
 }
+.pokeball {
+  opacity: 1;  
+  width: 120px;
+  height: 120px;
+}
 .brand {
   width: 250px;
+  margin-top: 10px;
+  position: absolute;
+  filter: drop-shadow(0 3px 9px var(--dark));
 }
 .container {
   background-color: var(--background);
@@ -54,8 +64,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 200px;
-  background-color: var(--red);
-  border-bottom: 30px solid #000;
+  background-color: var(--dark);
+  border-bottom: 30px solid var(--green);
   margin-bottom: 50px;
 }
 .subtitle {
@@ -65,14 +75,16 @@ body {
 }
 .container section {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
-  width: 90%;
-  margin: auto;
 }
 .container section .pokemons-list {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  transition: 250ms ease-in-out;
 }
 
 .container section .pokemons-list li.pokemon-item {
@@ -102,7 +114,7 @@ body {
   transition: 250ms ease-in-out;
 }
 .container section .pokemons-list li.pokemon-item button:hover {
-  border: 2px solid var(--red);
+  border: 2px solid var(--green);
   background-position-x: 50px;
   background-position-y: 167px;
 }
@@ -123,12 +135,16 @@ body {
   transition: 250ms ease-in-out;
 }
 .container section .pokemons-list li.pokemon-item:hover span.pokemon-number {
-  background-color: var(--red);
-  box-shadow: 2px 2px 5px var(--red-shadow);
+  background-color: var(--green);
+  box-shadow: 2px 2px 5px var(--green-shadow);
 }
 .container section .pokemons-list li.pokemon-item img {
   width: 160px;
   height: 160px;
+  transition: 250ms ease-in-out;
+}
+.container section .pokemons-list li.pokemon-item:hover img {
+  filter: drop-shadow(0px -10px 6px #40404088);
 }
 .container section .pokemons-list li.pokemon-item .pokemon-name {
   text-transform: capitalize;
@@ -164,10 +180,10 @@ body {
   word-break: unset;
 }
 .badge.badge-red {
-  background-color: var(--red);
+  background-color: var(--green);
   color: var(--white);
   font-weight: bold;
-  box-shadow: 3px 3px 9px var(--red-shadow);
+  box-shadow: 3px 3px 9px var(--green-shadow);
 }
 .badge.badge-dark {
   background-color: var(--dark);
@@ -183,10 +199,10 @@ body {
   background-color: rgb(223, 230, 234, 0.8);
 }
 .progress-bar .progress-status-red {
-  background-color: var(--red);
+  background-color: var(--green);
   border-radius: 5px;
   height: 25px;
-  box-shadow: 3px 3px 9px var(--red-shadow);
+  box-shadow: 3px 3px 9px var(--green-shadow);
 }
 .progress-bar .progress-status-dark {
   background-color: var(--dark);
@@ -195,7 +211,7 @@ body {
   box-shadow: 3px 3px 9px var(--dark-shadow);
 }
 .progress-bar .progress-status-gradient {
-  background: linear-gradient(90deg, var(--dark), var(--red));
+  background: linear-gradient(90deg, var(--dark), var(--green));
   border-radius: 5px;
   height: 25px;
   box-shadow: 3px 3px 9px var(--dark-shadow);
@@ -211,7 +227,6 @@ body {
   position: fixed;
   backdrop-filter: blur(10px);
   background: rgba(52, 73, 94, 0.4);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -223,10 +238,14 @@ body {
   align-items: center;
   justify-content: center;
   /* background-color: var(--background); */
-  background-color: rgba(250, 250, 250, 0.6);
+  background: url('/bg-alt.png') rgba(250, 250, 250, 0.6);
+  background-size: cover;
   box-shadow: 5px 5px 15px var(--dark-shadow);
   animation: fade 500ms normal;
-  border: 1px solid rgba(255, 255, 255, 0.59);
+  border: 1px solid;
+  border-image: linear-gradient(-32deg, #FFFFFFDD, #FFFFFFAA, #FFFFFF00, #F5F5F8AA);
+  border-image-slice: 1;
+  /* border: 1px solid rgba(255, 255, 255, 0.59); */
 }
 
 .modal .modal-dialog .modal-header {
@@ -234,8 +253,8 @@ body {
   padding: 21px 10px;
 }
 .modal .modal-dialog .modal-header .close-button {
-  box-shadow: 3px 3px 9px var(--red-shadow);
-  background-color: var(--red);
+  box-shadow: 3px 3px 9px var(--dark-shadow);
+  background-color: var(--dark);
   border-radius: 0px 10px 0px 10px;
   padding: 10px;
   position: absolute;
@@ -246,6 +265,10 @@ body {
   color: var(--white);
   cursor: pointer;
   z-index: 999999;
+  transition: 250ms ease-in-out;
+}
+.modal .modal-dialog .modal-header .close-button:hover {
+  background-color: var(--red);
 }
 .modal .modal-dialog .modal-header .close-button span {
   vertical-align: middle;
@@ -341,7 +364,7 @@ footer p {
 footer p .heart {
   vertical-align: middle;
   font-size: 14px;
-  color: var(--red);
+  color: var(--green);
 }
 footer p img {
   vertical-align: middle;
@@ -356,17 +379,16 @@ footer p img {
     width: 100%;
     padding: 0px;
   }
-  .container section .pokemons-list li.pokemon-item {
-    margin: 8px;
-    width: 145px;
+  .container section .pokemons-list {
+    grid-template-columns: repeat(3, 33.33%);
   }
   .container section .pokemons-list li.pokemon-item button {
-    background-position-x: 10px;
+    background-position-x: 50%;
     background-position-y: 230px;
     width: 100%;
   }
   .container section .pokemons-list li.pokemon-item button:hover {
-    background-position-x: 10px;
+    background-position-x: 50%;
     background-position-y: 167px;
   }
   .container section .pokemons-list li.pokemon-item img {
@@ -461,4 +483,52 @@ footer p img {
     font-weight: bold;
   }
 
+}
+
+@media(max-width: 720px) {
+  .container {
+    width: 100%;
+    padding: 0px;
+    margin: auto;
+  }
+  .container section .pokemons-list {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+  .container section .pokemons-list li.pokemon-item button {
+    background-position-x: 50%;
+    background-position-y: 240px;
+  }
+  .container section .pokemons-list li.pokemon-item button:hover {
+    border: 2px solid var(--green);
+    background-position-x: 50%;
+    background-position-y: 167px;
+  }
+}
+
+@media(max-width: 490px) {
+  .container section .pokemons-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container section .pokemons-list li.pokemon-item {
+    width: 80%;
+  }
+  .container section .pokemons-list li.pokemon-item button {
+    background-position-x: 50%;
+    background-position-y: 240px;
+  }
+  .container section .pokemons-list li.pokemon-item button:hover {
+    border: 2px solid var(--green);
+    background-position-x: 50%;
+    background-position-y: 167px;
+  }
+  .container section .pokemons-list li.pokemon-item img {
+    width: 150px;
+    height: 150px;
+    transition: 250ms ease-in-out;
+  }
 }

@@ -48,8 +48,9 @@ export default function Home() {
       <Modal data={pokemon} isVisible={showModal} handleModal={handleModal} />
 
       <header className="main-header">
-        <img src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" alt="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" className="brand" />
-        <p className="subtitle">Lista de pokemons classicos</p>
+        <img src="/pokeball.png" alt="pokeball" className="pokeball" />
+        <img src="/logo.png" alt="logo.png" className="brand" />
+        <p className="subtitle">Classic Pokémons</p>
       </header>
       <section>
         <ul className="pokemons-list">
