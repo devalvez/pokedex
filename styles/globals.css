@@ -319,6 +319,7 @@ body {
 }
 .modal .modal-dialog .modal-body .modal-content .pokemon-art img {
   width: 100%;
+  filter: drop-shadow(0 32px 32px #17202AAA);
 }
 .modal .modal-dialog .modal-body .modal-content .pokemon-art .pokemon-name {
   text-transform: capitalize;
